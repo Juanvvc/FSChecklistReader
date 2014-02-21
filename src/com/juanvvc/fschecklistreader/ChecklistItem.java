@@ -6,6 +6,16 @@ class ChecklistItem {
 	private String name;
 	/** Value of the item */
 	private String value;
+	/** If false, cannot be done in the simulator */
+	private boolean doable = true;
+
+	public boolean isDoable() {
+		return doable;
+	}
+
+	public void setDoable(boolean doable) {
+		this.doable = doable;
+	}
 
 	public String getName() {
 		return name;

@@ -98,9 +98,17 @@ class XMLChecklistHandler extends DefaultHandler {
 		// if a checklist starts, create the checklist
 		if (qName.equals("checklist")) {
 			current = new Checklist();
-			// if a checklistitem starts, create the checklistitem
+		// if a checklistitem starts, create the checklistitem
 		} else if (qName.equals("item")) {
 			current_item = new ChecklistItem();
+			
+			String v = attributes.getValue("doable");
+			if ( v != null && v.toLowerCase().equals("false")) {
+				current_item.setDoable(false);
+			} else {
+				current_item.setDoable(true);
+			}
+			
 		} // any other elements do not need a special management
 			// notice many elements will be ignored: markers, for example
 

@@ -9,16 +9,24 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+/** An adapter for a checklist.
+ * 
+ * This adapter shows a list of available checklists
+ * @author juanvi
+ *
+ */
 class ChecklistAdapter extends BaseAdapter {
 	
-	int colors[] = {0xeef6cef5, 0xeeced8f6};
-	
+	/** Use these colors to alternate in the list */
+	private static final int colors[] = {0xeef6cef5, 0xeeced8f6};
+	/** The list of checklists to show */
+	ArrayList<Checklist> checklists = null;
+	/** A reference to the parent activity */
 	ChecklistsActivity checklistsActivity;
+	
 	ChecklistAdapter(ChecklistsActivity checklistsActivity) {
 		this.checklistsActivity = checklistsActivity;
 	}
-
-	ArrayList<Checklist> checklists = null;
 	
 	public void setChecklists(ArrayList<Checklist> cl) {
 		this.checklists = cl;
@@ -48,6 +56,12 @@ class ChecklistAdapter extends BaseAdapter {
 		if (convertView == null) {
 			LayoutInflater inflater = (LayoutInflater) this.checklistsActivity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 			convertView = inflater.inflate(R.layout.row_checklist, null);
+		}
+		
+		if ( checklists == null ) {
+			MyLog.w(this, "The checklists are not set");
+			return convertView;
+			
 		}
 		
 		convertView.setBackgroundColor(colors[position%2]);

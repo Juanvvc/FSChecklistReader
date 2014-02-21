@@ -20,6 +20,9 @@ public class ChecklistsActivity extends FragmentActivity implements ChecklistFra
 	private String xmlurl = null;
 	private int xmlposition = -1;
 	private int mode = 0;
+	
+	// TODO: make this configurable
+	private static final boolean SHOW_DOABLES = true;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -120,7 +123,7 @@ public class ChecklistsActivity extends FragmentActivity implements ChecklistFra
 			
 			switch(mode) {
 			case ChecklistFragment.MODE_ITEMS:
-				items = new ItemsAdapter(ChecklistsActivity.this);
+				items = new ItemsAdapter(ChecklistsActivity.this, SHOW_DOABLES);
 				items.setChecklists(result.getChecklists());
 				items.setPosition(xmlposition);
 				f = (ChecklistFragment) getSupportFragmentManager().findFragmentById(R.id.items);
@@ -133,7 +136,7 @@ public class ChecklistsActivity extends FragmentActivity implements ChecklistFra
 				f.setListAdapter(checklists);
 				break;
 			case ChecklistFragment.MODE_BOTH:
-				items = new ItemsAdapter(ChecklistsActivity.this);
+				items = new ItemsAdapter(ChecklistsActivity.this, SHOW_DOABLES);
 				items.setChecklists(result.getChecklists());
 				items.setPosition(xmlposition);
 				f = (ChecklistFragment) getSupportFragmentManager().findFragmentById(R.id.items);
