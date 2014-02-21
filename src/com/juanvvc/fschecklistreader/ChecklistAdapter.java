@@ -10,6 +10,9 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 class ChecklistAdapter extends BaseAdapter {
+	
+	int colors[] = {0xeef6cef5, 0xeeced8f6};
+	
 	ChecklistsActivity checklistsActivity;
 	ChecklistAdapter(ChecklistsActivity checklistsActivity) {
 		this.checklistsActivity = checklistsActivity;
@@ -46,6 +49,8 @@ class ChecklistAdapter extends BaseAdapter {
 			LayoutInflater inflater = (LayoutInflater) this.checklistsActivity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 			convertView = inflater.inflate(R.layout.row_checklist, null);
 		}
+		
+		convertView.setBackgroundColor(colors[position%2]);
 		
 		TextView tv = (TextView) convertView.findViewById(R.id.name);
 		tv.setText(this.checklists.get(position).getTitle());

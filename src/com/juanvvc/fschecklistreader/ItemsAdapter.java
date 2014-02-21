@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 class ItemsAdapter extends ChecklistAdapter {
+	int colors[] = {0xfff5f6ce, 0xffcef6ce};
+	
 	ItemsAdapter(ChecklistsActivity checklistsActivity) {
 		super(checklistsActivity);
 		xmlposition = -1;
@@ -41,6 +43,8 @@ class ItemsAdapter extends ChecklistAdapter {
 			LayoutInflater inflater = (LayoutInflater) this.checklistsActivity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 			convertView = inflater.inflate(R.layout.row_checklist_item, null);
 		}
+		
+		convertView.setBackgroundColor(colors[position%2]);
 		
 		ChecklistItem item = (ChecklistItem) this.getItem(position);
 		
