@@ -1,0 +1,45 @@
+<PropertyList>
+
+  <checklist>
+    <title>Ground Handling</title>  
+    <item> <name>There are 2 different modes to control the hang glider on ground: walking and running. </name><value></value></item>
+    <item> <name>walking: - forced movement with fixed step size                 </name><value></value></item>
+    <item> <name>running: - motion due to external forces/moments                </name><value></value></item>
+    <item> <name>            - superimposes walking-mode                            </name><value></value></item>
+    <item> <name>                                                                </name><value></value></item>
+    <item> <name>Controls:                                                       </name><value></value></item>
+    <item> <name>  mode   |       forward/backward      |       sideward     |    turning    |</name><value></value></item>
+    <item> <name>------------------------------------------------</name><value></value></item>
+    <item> <name>walking  |          arrow up/down       |  arrow left/right  | Insert/Enter |</name><value></value></item>
+    <item> <name>running  | increase/decrease throttle |           -           |     rudder    |</name><value></value></item>
+    <item> <name>                                                                </name><value></value></item>
+    <item> <name>The running force (forward) is set to 0 by once only pressing 3/PgDn (backward) and vice versa. </name><value></value></item>
+    <item> <name>Same control behavior with walking (Movement stops after 1x pressing the opposite direction).</name><value></value></item>
+    <item> <name>Once in air all forces are set to 0.                         </name><value></value></item>
+    <item> <name>                                                                </name><value></value></item>
+    <item> <name>Breaks ("b") are usable.                                        </name><value></value></item>
+    <item> <name>The parking-brake ("B") is set automatically after inserting the legs.</name><value></value></item>
+    <item> <name>Running forces release the parking-brake automatically (see BREAK-instrument in panel).</name><value></value></item>
+    <item> <name>                                                                </name><value></value></item>
+    <item> <name>Recover (pick yourself up after a crash) with "r"               </name><value></value></item>
+    <item> <name>                                                                </name><value></value></item>
+  </checklist>
+
+  <checklist>
+    <title>Take-off and Touch down</title>  
+    <item> <name>Take-off:                                                       </name><value></value></item>
+    <item> <name>Positioning and alignment in "walking"-mode                     </name><value></value></item>
+    <item> <name>From mountain: Run forward ("running"-mode)                     </name><value></value></item>
+    <item> <name>From flat terrain: "s" + increase throttle or Ctrl-U            </name><value></value></item>
+    <item> <name>                                                                </name><value></value></item>
+    <item> <name>Touch down:                                                     </name><value></value></item>
+    <item> <name>1. erect pilot                                                  </name><value></value></item>
+    <item> <name>2. wait until running animation starts (altitude less than 10ft)</name><value></value></item>
+    <item> <name>3. reduce speed to trim speed while keeping altitude            </name><value></value></item>
+    <item> <name>4. push A-frame (pull joystick/mouse)                           </name><value></value></item>
+  </checklist>
+
+  
+</PropertyList>
+
+

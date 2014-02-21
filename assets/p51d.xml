@@ -1,0 +1,424 @@
+    <PropertyList>
+    <checklist>
+    <title>Engine Start</title>
+    <item include="prop-full.xml">
+    <name>Prop</name>
+    <value>FULL INCREASE</value>
+    </item>
+	<item include="magneto-off.xml">
+    <name>Ignition switch</name>
+    <value>OFF</value>
+    </item>
+	<item include="battery-not-connected.xml">
+    <name>Battery Disconnect Off</name>
+    <value>OFF</value>
+    </item>
+    <item include="mixture-idle.xml">
+    <name>Mixture</name>
+    <value>IDLE CUTOFF</value>
+    </item>
+	<item>
+    <name>Ground Crew Propeller Pull Through</name>
+    <value>Not Modeled Skip</value>
+    </item>
+    <item include="fuel-on.xml">
+    <name>Fuel Cutoff</name>
+    <value>ON</value>
+    </item>
+	<item include="battery-connected.xml">
+    <name>Battery disconnect</name>
+    <value>ON</value>
+    </item>
+	<item include="gunsight-on.xml">
+    <name>Gunsight</name>
+    <value>ON</value>
+    </item>
+    <item include="gunsight-gyro-on.xml">
+    <name>Gunsight Gyro</name>
+    <value>ON</value>
+    </item>	
+    <item include="throttle.xml">
+    <name>Throttle</name>
+    <value>ONE INCH</value>
+    <min-throttle>0.14</min-throttle>
+    <max-throttle>0.18</max-throttle>
+    </item>
+    <item>
+    <name>Prop</name>
+    <value>CLEAR</value>
+    </item>
+    <item include="starter-on.xml">
+    <name>Start Switch</name>
+    <value>ON</value>
+    </item>
+    <item include="ignition-both.xml">
+    <name>Ignition</name>
+    <value>BOTH (after 6 blades)</value>
+    </item>
+    <item include="fuel-boost-on.xml">
+    <name>Fuel Boost</name>
+    <value>ON</value>
+    </item>
+    <item include="primer-on.xml">
+    <name>Primer</name>
+    <value>ON</value>
+    </item>
+    <item include="mixture-run.xml">
+    <name>Mixture (after engine start)</name>
+    <value>RUN</value>
+    </item>
+    <item include="primer-off.xml">
+    <name>Primer</name>
+    <value>OFF</value>
+    </item>
+    <item include="oil-pressure.xml">
+    <name>Oil Pressure</name>
+    <value>50 psi</value>
+    </item>	
+    <item include="generator-on.xml">
+    <name>Generator Disconnect</name>
+    <value>ON</value>
+    </item>
+    </checklist>
+    <checklist>
+    <title>Pre-flight Check</title>
+    <item>
+    <name>Primary Controls</name>
+    <value>Check for free movement</value>
+    </item>
+    <item>
+    <name>Altimeter</name>
+    <value>SET</value>
+    </item>
+    <item>
+    <name>Directional Gyro</name>
+    <value>SET</value>
+    </item>
+    <item>
+    <name>Instruments</name>
+    <value>Correct</value>
+    </item>
+    <item>
+    <name>Switches</name>
+    <value>Correct position</value>
+    </item>
+    <item include="fuel-selector.xml">
+    <name>Fuel tank Selector</name>
+    <value>Main LH</value>
+    </item>
+    <item include="fuel-boost-on.xml">
+    <name>Fuel Boost</name>
+    <value>ON</value>
+    </item>
+    <item include="primer-off.xml">
+    <name>Primer</name>
+    <value>OFF</value>
+    </item>
+    <item include="flaps-up.xml">
+    <name>Flaps</name>
+    <value>UP (normal take-off)</value>
+    </item>
+    <item><name>Fuselage tank 0-25 GAL</name></item>
+    <item include="trim-rudder.xml">
+    <name>Rudder Trim</name>
+    <value>6 degrees right</value>
+    <min-trim>0.45</min-trim>
+    <max-trim>0.55</max-trim>
+    </item>
+    <item include="trim-aileron.xml">
+    <name>Aileron Trim</name>
+    <value>0 degrees</value>
+    <min-trim>-0.05</min-trim>
+    <max-trim>0.05</max-trim>
+    </item>
+    <item include="trim-elevator.xml">
+    <name>Elevator Trim</name>
+    <value>0 degrees</value>
+    <min-trim>-0.05</min-trim>
+    <max-trim>0.05</max-trim>
+    </item>
+    <item><name>Fuselage tank full</name></item>
+    <item include="trim-rudder.xml">
+    <name>Rudder Trim</name>
+    <value>6 degrees right</value>
+    <min-trim>0.45</min-trim>
+    <max-trim>0.55</max-trim>
+    </item>
+    <item include="trim-aileron.xml">
+    <name>Aileron Trim</name>
+    <value>0 degress</value>
+    <min-trim>-0.05</min-trim>
+    <max-trim>0.05</max-trim>
+    </item>
+    <item include="trim-elevator.xml">
+    <name>Elevator Trim</name>
+    <value>0-4 degrees nose heavy</value>
+    <min-trim>0.3</min-trim>
+    <max-trim>0.5</max-trim>
+    </item>
+    <item>
+    <name>Circuit Breakers</name>
+    <value>ALL IN</value>
+    </item>
+    <item>
+    <name>Canopy</name>
+    <value>LOCKED</value>
+    <value>EMERGENCY RELEASE HANDLE SAFETIED</value>
+    </item>
+    </checklist>
+    <checklist>
+    <title>Engine Check</title>
+    <item include="prop-full.xml">
+    <name>Prop</name>
+    <value>FULL INCREASE</value>
+    </item>
+    <item include="rpm.xml">
+    <name>Power</name>
+    <value>Advance throttle to 2300RPM</value>
+    <value>Manifold pressure matches field barometric pressure +-1/2 in Hg</value>
+    <min-rpm>2250</min-rpm>
+    <max-rpm>2350</max-rpm>
+    </item>
+    <item>
+    <name>Magneto check</name>
+    <value>Max 100RPM drop right</value>
+    <value>Max 120RPM drop left</value>
+    </item>
+    <item>
+    <name>Idle speed check</name>
+    <value>650-700rpm with throttle at idle stop</value>
+    </item>
+    <item>
+    <name>Acceleration/deceleration check</name>
+    <value>Throttle idle - 2300RPM</value>
+    <value>Engine accelerates and decelerates smoothly, no backfire</value>
+    </item>
+    <item include="rpm.xml">
+    <name>Throttle for best cooling</name>
+    <value>1500RPM </value>
+    <min-rpm>1400</min-rpm>
+    <max-rpm>1600</max-rpm>
+    </item>
+    <item include="carburetor.xml">
+    <name>Carburetor ram-air</name>
+    <value>RAM AIR</value>
+    </item>
+    <item include="mixture-run.xml">
+    <name>Mixture</name>
+    <value>RUN</value>
+    </item>
+    <item include="supercharger-auto.xml">
+    <name>Supercharger</name>
+    <value>AUTO</value>
+    </item>
+    <item>
+    <name>Oil and coolant radiators</name>
+    <value>AUTOMATIC</value>
+    </item>
+    </checklist>
+    <!--
+    <checklist>
+    <title>Take Off</title>
+    <item>
+    <name>1. Slowly increase throttle to 61 inHG as you pick up speed</name>
+    <value/>
+    </item>
+    <item>
+    <name>2. Be ready to actuate rudder during the takeoff roll</name>
+    <value/>
+    </item>
+    <item>
+    <name>3. At about 60 MPH indicated the tail will start to lift and the airplane</name>
+    <value/>
+    </item>
+    <item>
+    <name> will want to go to the left as the tail is coming up.</name>
+    <value/>
+    </item>
+    <item>
+    <name>4. As you gain speed the amount of rudder correction to the right will need</name>
+    <value/>
+    </item>
+    <item>
+    <name> to be decreased and you may need to use left rudder depending on how</name>
+    <value/>
+    </item>
+    <item>
+    <name> much right rudder trim you set.</name>
+    <value/>
+    </item>
+    <item>
+    <name>5. Stay on top of rudder and elevator with small adjustments and keep the nose</name>
+    <value/>
+    </item>
+    <item>
+    <name> down until rotation or you'll do a ground loop.</name>
+    <value/>
+    </item>
+    <item>
+    <name>6. Rotate at 150 mph if you have enough room but never below 120 mph (short field only).</name>
+    <value/>
+    </item>
+    <item>
+    <name>7. As you raise the gear the trim will change in a nose up direction.</name>
+    <value/>
+    </item>
+    <item>
+    <name> Be careful to avoid stalling or loosing air speed as the gear is retracted.</name>
+    </item>
+    <item>
+    <name>8. All of the take off trim settings will need to be adjusted as you pick up speed so this</name>
+    <value/>
+    </item>
+    <item>
+    <name> will contribute to a high pilot work load during the take off. You will need to remove</name>
+    <value/>
+    </item>
+    <item>
+    <name> right rudder trim almost as soon as you leave the ground.</name>
+    <value/>
+    </item>
+    </checklist>
+    -->
+    <checklist>
+    <title>Climb</title>
+    <item include="manifold.xml">
+    <name>Manifold Pressure</name>
+    <value>46 inHG</value>
+    <min-mp-inhg>45</min-mp-inhg>
+    <max-mp-inhg>47</max-mp-inhg>
+    </item>
+    <item include="rpm.xml">
+    <name>Propeller Pitch</name>
+    <value>2700RPM</value>
+    <min-rpm>2650</min-rpm>
+    <max-rpm>2700</max-rpm>
+    </item>
+    <item include="mixture-run.xml">
+    <name>Mixture</name>
+    <value>RUN</value>
+    </item>
+    <item include="supercharger-auto.xml">
+    <name>Supercharger</name>
+    <value>AUTO</value>
+    </item>
+    <item>
+    <name>Throttle automatic boost control will hold the manifold pressure</name>
+    <value/>
+    </item>
+    <item>
+    <name>setting as long as the supercharger has enough boost.</name>
+    <value/>
+    </item>
+    <item>
+    <name>It will hold 46 inHG to about 30,000ft.</name>
+    <value/>
+    </item>
+    </checklist>
+    <checklist>
+    <title>Pre-traffic pattern check</title>
+    <item>
+    <name>Fuel selector</name>
+    <value>Fullest internal tank</value>
+    </item>
+    <item include="fuel-boost-on.xml">
+    <name>Fuel Boost</name>
+    <value>ON</value>
+    </item>
+    <item include="carburetor.xml">
+    <name>Carburetor RAM / HOT-AIR</name>
+    <value>As needed</value>
+    </item>
+    <item include="mixture-run.xml">
+    <name>Mixture</name>
+    <value>RUN</value>
+    </item>
+    <item include="rpm.xml">
+    <name>Propeller Pitch</name>
+    <value>2700RPM</value>
+    <min-rpm>2650</min-rpm>
+    <max-rpm>2700</max-rpm>
+    </item>
+    <item>
+    <name>Oil and coolant radiators</name>
+    <value>AUTOMATIC</value>
+    </item>
+    <item>
+    <name>Clean out engine at 3000RPM and 60inHG for one minute.</name>
+    </item>
+    </checklist>
+
+    <checklist>
+    <title>Traffic pattern check</title>
+    <item>
+    <name>Landing Gear</name>
+    <value>DOWN (below 170 mph)</value>
+    <condition>
+    <property>/controls/gear/gear-down</property>
+    <value>true</value>
+    </condition>
+    <value>Check gear position by use of warning lights, horn and hydraulic pressure</value>
+    </item>
+    <item include="flaps.xml">
+    <name>Flaps</name>
+    <value>15 (if desired)</value>
+    <flaps>0.2</flaps>
+    </item>
+    <item>
+    <name>Recheck gear and flaps</name>
+    <value/>
+    </item>
+    <item>
+    <name>Throttle closed when landing assured</name>
+    <value/>
+    </item>
+    <item include="flaps.xml">
+    <name>Flaps</name>
+    <value>DOWN (above 400ft)</value>
+    <flaps>1</flaps>
+    </item>
+    <item>
+    <name>Speed</name>
+    <value>120 IAS at edge of field</value>
+    </item>
+    </checklist>
+    <!--
+    <checklist>
+    <title>Landing</title>
+    <item>
+    <name>1. Use continuous back pressure on the stick to obtain</name>
+    <value></value>
+    </item>
+    <item>
+    <name> a tail-low attitude for actual touch down.</name>
+    <value></value>
+    </item>
+    <item>
+    <name>2. Because of the wide landing gear and locked tail wheel,</name>
+    <value></value>
+    </item>
+    <item>
+    <name> landing characteristics are excellent on this aircraft.</name>
+    <value></value>
+    </item>
+    <item>
+    <name>3. Minimize use of brakes during ground roll.</name>
+    <value></value>
+    </item>
+    <item>
+    <name>4. At completion of the landing roll, clear runway as soon as</name>
+    <value></value>
+    </item>
+    <item>
+    <name> possible. Excessive braking can cause you to do a ground loop (nose over).</name>
+    <value></value>
+    </item>
+    <item>
+    <name> Some recommend raising flaps immediately after touchdown.</name>
+    <value></value>
+    </item>
+    </checklist>
+    -->
+    </PropertyList>
+	
+

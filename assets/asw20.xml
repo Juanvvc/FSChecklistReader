@@ -1,0 +1,337 @@
+<PropertyList>
+
+  <checklist>
+    <title>Weight and Balance</title>  
+    <item>
+      <name>Empty weight with min. equipment</name>
+      <value>~255 kg / ~565 lbs</value>
+    </item>
+    <item>
+      <name>Max. all-up weight</name>
+      <value>454 kg / 1000 lbs</value>
+    </item>
+    <item>
+      <name>Max. weight of non lift producing components</name>
+      <value>235 kg / 518 lbs</value>
+    </item>
+    <item>
+      <name>Permissible water ballast</name>
+      <value>max. 120 kg / 265 lbs</value>
+    </item>
+    <item>
+      <name>(depending on cockpit load)</name>
+      <value> </value>
+    </item>
+    <item>
+      <name> </name>
+    </item>
+    <item>
+      <name>Centre of Gravity min</name>
+      <value>240 mm /  9.45 inch </value>
+    </item>
+    <item>
+      <name>Centre of Gravity max</name>
+      <value>360 mm / 14.17 inch </value>
+    </item>
+  </checklist>
+
+  <checklist>
+    <title>Minimum airspeeds</title>
+    <item>
+     <name>Minimum speeds for an all up weight of </name>
+     <value>350 kg / 772 lbs</value>
+    </item>
+    <item>
+     <name>Minimum speeds for maximum all up weight of </name>
+     <value>(454 kg / 1000 lbs)</value>
+    </item>
+    <item>
+     <name>are given in brackets </name>
+     <value> </value>
+    </item>
+    <item>
+      <name> </name>
+    </item>   
+    <item>
+      <name>Flap position 1</name>
+      <value>76 km/h / 41 knots</value>
+      <value>(87 km/h / 47 knots)</value>
+    </item>
+    <item>
+      <name>Flap position 2</name>
+      <value>73 km/h / 39.5 knots</value>
+      <value>(83 km/h / 45 knots)</value>
+    </item>
+    <item>
+      <name>Flap position 3</name>
+      <value>72 km/h / 39 knots</value>
+      <value>(82 km/h / 44 knots)</value>
+    </item>
+    <item>
+      <name>Flap position 4</name>
+      <value>70 km/h / 38 knots</value>
+      <value>(80 km/h / 43 knots)</value>
+    </item>
+    <item>
+      <name>Flap position 5</name>
+      <value>66 km/h / 35.5 knots</value>
+      <value>(75 km/h / 40.5 knots)</value> 
+    </item>
+    <item>
+      <name>Extending airbrakes increases min. speeds by approx.</name>
+      <value>+7 km/h / +4 knots</value>
+    </item>
+  </checklist>
+  
+  <checklist>
+    <title>Maximum airspeeds</title>
+    <item>
+      <name>Flap position 1 (VNE)</name>
+      <value>265 km/h / 143 knots</value>
+    </item>
+    <item>
+      <name>Flap position 2 (VFE)</name>
+      <value>200 km/h / 108 knots</value>
+    </item>
+    <item>
+      <name>Flap position 3 (VFE)</name>
+      <value>200 km/h / 108 knots</value>
+    </item>
+    <item>
+      <name>Flap position 4 (VFE)</name>
+      <value>160 km/h /  86 knots</value>
+    </item>
+    <item>
+      <name>Flap position 5 (VFE)</name>
+      <value>120 km/h /  65 knots</value>
+    </item>
+    <item>
+      <name>In rough air (VRA)</name>
+      <value>180 km/h /  97 knots</value>
+    </item>
+    <item>
+      <name>With full control deflections</name>
+      <value>175 km/h /  94 knots</value>
+    </item>
+     <item>
+      <name>(manoeuvre speed; VA)</name>
+      <value> </value>
+    </item>
+    <item>
+      <name>Winch and auto tow (VW)</name>
+      <value>120 km/h /  65 knots</value>
+    </item>
+    <item>
+      <name>Aerotow (VT)</name>
+      <value>175 km/h /  94 knots</value>
+    </item>
+    <item>
+      <name>Extending landing gear (VLO)</name>
+      <value>175 km/h /  94 knots</value>
+    </item>
+  </checklist>
+  
+
+  <checklist>  
+    <title>Pre-flight Check</title>
+    <item>
+      <name>Conrol connections, main-pins and bolts safetied?</name>
+      <value>CHECK</value>
+    </item>
+    <item>
+      <name>Control check forcewise and for full deflections?</name>
+      <value>CHECK</value>
+    </item>
+    <item>
+      <name>Parachute static line connected?</name>
+      <value>CHECK</value>
+    </item>
+    <item>
+      <name>Gaps for control surfaces in flight direction 1.5 mm or wider?</name>
+      <value>CHECK</value>
+    </item>
+  </checklist>
+  
+  <checklist>
+    <title>Prior to Start</title>
+    <item>
+      <name>Parachute connected to harness?</name>
+      <value>CHECK</value>
+    </item>
+    <item>
+      <name>Safety harness fastened?</name>
+      <value>CHECK</value>
+    </item>
+    <item>
+      <name>Landing gear doors locked?</name>
+      <value>CHECK</value>
+    </item>    
+    <item>
+      <name>Airbrakes locked?</name>
+      <value>CHECK</value>
+    </item>
+    <item>
+      <name>Trim lever adjusted to a middle position?</name>
+      <value>CHECK</value>
+    </item>
+    <item>
+      <name>Flap control lever in starting position?</name>
+      <value>Flap Pos. 3/4</value>
+    </item>
+    <item>
+      <name>Altimeter adjusted?</name>
+      <value>CHECK</value>
+    </item>
+    <item>
+      <name>What is the wind direction now?</name>
+      <value>CHECK</value>
+    </item>
+    <item>
+      <name>Close your canopy now and move white levers back</name>
+      <value>CHECK</value>
+    </item>
+  </checklist>
+
+  <checklist>
+    <title>Tail spins (Entry and Recovery)</title>
+    <item>
+      <name>Starting spins:</name>
+      <value></value>
+    </item>
+    <item>
+      <name>1. Reduce speed to stall speed (side string on black marker line)</name>
+      <value></value>
+    </item>
+    <item>
+      <name>2. Full deflection of rudder in spin direction</name>
+      <value></value>
+    </item>
+    <item>
+      <name>3. Full deflection of aileron in opposite spin direction</name>
+      <value></value>
+    </item>
+    <item>
+      <name>4. Full pulled elevator</name>
+      <value></value>
+    </item>
+    <item>
+      <name></name>
+      <value></value>
+    </item>
+    <item>
+      <name>Recovery from spins:</name>
+      <value></value>
+    </item>
+    <item>
+      <name>1. Apply opposite rudder</name>
+      <value></value>
+    </item>
+    <item>
+      <name>2. Short pause</name>
+      <value></value>
+    </item>
+    <item>
+      <name>3. Ease the control column forward, until the rotation ceases </name>
+      <value></value>
+    </item>    
+    <item>
+      <name>   and sound airflow is etablished again</name>
+      <value></value>
+    </item>
+    <item>
+      <name>4. Centralise rudder and allow sailplane to dive out</name>
+      <value></value>
+    </item>
+    <item>
+      <name></name>
+      <value></value>
+    </item>
+    <item>
+      <name>More details in Ref. 2 p. 22 and 26</name>
+      <value></value>
+    </item>
+  </checklist>
+  
+  <checklist>  
+    <title>References</title>
+    <item>
+      <name>/Aircraft/UIUC/asw20-v1-nl/README.asw20.html</name>
+      <value>Ref 1</value>
+    </item>
+    <item>
+      <name>  /Aircraft/UIUC/asw20-v1-nl/aircraft.dat</name>
+      <value></value>
+    </item>
+    <item>
+      <name>Flight and Operations Manual for Sailplane Model ASW 20; July, 1977 Edition   </name>
+      <value>Ref 2</value>
+    </item>
+    <item>
+      <name>  (http://ebookbrowse.com/asw20-flight-manual-pdf-d182065150)</name>
+      <value></value>
+    </item>
+    <item>
+      <name>Luftfahrt-Bundesamt Geraetekennblatt Nr. 314; Ausgabe Nr.13; 20.02.1997</name>
+      <value>Ref 3</value>
+    </item>
+    <item>
+      <name>Johnson, R.H., "A Flight Test Evaluation of the ASW 20," Soaring Magazine,</name>
+      <value>Ref 4</value>
+    </item>
+    <item>
+      <name>  May 1978</name>
+      <value></value>
+    </item>
+    <item>
+      <name>http://www.alexander-schleicher.de/service/polaren/polare20A.jpg</name>
+      <value>Ref 5</value>
+    </item>
+    <item>
+      <name>http://www.alpenstreckenflug.de/Prospekte/Alexander%20Schleicher/</name>
+      <value>Ref 6</value>
+    </item>
+    <item>
+      <name>  ASW%2020/page_01.htm</name>
+      <value></value>
+    </item>
+    <item>
+      <name>Jones, Nathan H, "Glider Ground Effect Investigation" Thesis, Department of </name>
+      <value>Ref 7</value>
+    </item>
+    <item>
+      <name>  The Air Force Air University, Wright-Patterson Air force Base Ohio, USA, 1989,</name>
+      <value></value>
+    </item>
+    <item>
+      <name>  Storming Media, Washington DC 20002</name>
+      <value></value>
+    </item>
+  </checklist>
+
+  <checklist>
+    <title>Known Issues</title>
+<!--    <item>
+      <name>- towing forces not yet transmitted by multiplayer</name>
+      <value></value>
+    </item>
+    <item>
+      <name>- towing insufficiently tested</name>
+      <value></value>
+    </item>
+-->
+    <item>
+      <name>- maybe over pronounced tail spin</name>
+      <value></value>
+    </item>
+    <item>
+      <name>- longitudinal stability not yet checked</name>
+      <value></value>
+    </item>
+    <item>
+      <name></name>
+      <value></value>
+    </item>
+  </checklist>
+    
+</PropertyList>
+

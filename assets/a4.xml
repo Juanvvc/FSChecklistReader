@@ -1,0 +1,724 @@
+<PropertyList>
+ <checklist>
+   <title>Shore pre-takeoff</title>
+   <item include="trim.xml">
+     <name>Elevator Trim</name>
+     <value>8 DEGREES UP</value>
+     <min-trim>-0.3</min-trim>
+     <max-trim>-0.25</max-trim>
+   </item>
+   <item>
+     <name>Harness</name>
+     <value>SHOULDER HARDNESS LOCKED</value>
+   </item>
+   <item>
+     <name>Canopy</name>
+     <value>HANDLE OVER-CENTER</value>
+     <value>CANOPY HOOKS ENGAGED IN ROLLERS</value>
+   </item>
+   <item include="flaps-half.xml">
+     <name>Flaps</name>
+     <value>SET AT 1/2</value>
+   </item>
+   <item include="speedbrakes-closed.xml">
+     <name>Speedbrakes</name>
+     <value>CLOSED (Ctrl-B)</value>
+   </item>
+   <item>
+     <name>Spoilers</name>
+     <value>AS DESIRED</value>
+   </item>
+   <item include="armament-off.xml">
+			<name>Armament</name>
+			<value>All switches OFF</value>
+   </item>
+ </checklist>
+ <checklist>
+   <title>Shore takeoff</title>
+   <item include="flaps-half.xml">
+     <name>Flaps</name>
+     <value>CHECK 1/2</value>
+   </item>
+   <item include="speedbrakes-closed.xml">
+     <name>Spoilers</name>
+     <value>CHECK</value>
+   </item>
+   <item include="throttle.xml">
+     <name>Throttle</name>
+     <value>100%</value>
+     <min-throttle>0.99</min-throttle>
+     <max-throttle>1.01</max-throttle>
+   </item>
+   <item>
+     <name>Brakes</name>
+     <value>RELEASE</value>
+   </item>
+   <item>
+     <name>EPR/EGT/RPM</name>
+     <value>CHECK</value>
+   </item>
+   <item include="airspeed-min.xml">
+     <name>Nosewheel lift-off</name>
+     <value>123 KIAS</value>
+     <min-airspeed-kt>123</min-airspeed-kt>
+  </item>
+   <item include="airspeed-min.xml">
+     <name>Linespeed at 2000'</name>
+     <value>126 KIAS</value>
+     <min-airspeed-kt>126</min-airspeed-kt>
+   </item>
+   <item include="airspeed-min.xml">
+     <name>Takeoff</name>
+     <value>133 KIAS</value>
+     <min-airspeed-kt>133</min-airspeed-kt>
+   </item>
+   <item include="gear-up.xml">
+     <name>Gear</name>
+     <value>UP</value>
+   </item>
+   <item include="flaps-up.xml">
+     <name>Flaps</name>
+     <value>UP (170 KIAS, safe altitude)</value>
+   </item>
+   <item>
+     <name>Speed</name>
+     <value>ACCELERATE TO CLIMB SPEED</value>
+   </item>
+   <item include="spoilers-off.xml">
+     <name>Spoilers</name>
+     <value>OFF (j)</value>
+  </item>
+ </checklist>
+ <checklist>
+   <title>Shore landing</title>
+   <page>
+		 <item><name>INITIAL</name></item>
+		 <item include="airspeed.xml">
+			 <name>Speed</name>
+			 <value>250 - 300 KIAS</value>
+			 <min-airspeed-kt>250</min-airspeed-kt>
+			 <max-airspeed-kt>300</max-airspeed-kt>
+		 </item>
+		 <item><name>BREAK</name></item>
+		 <item include="speedbrakes-open.xml">
+			 <name>Speedbrakes</name>
+			 <value>EXTENDED (Ctrl-B)</value>
+		 </item>
+		 <item include="throttle.xml">
+			 <name>Throttle</name>
+			 <value>70%</value>
+			 <min-throttle>0.65</min-throttle>
+			 <max-throttle>0.75</max-throttle>
+		 </item>
+		 <item include="gear-down.xml">
+			 <name>Gear</name>
+			 <value>DOWN (below 225 KIAS)</value>
+		 </item>
+		 <item include="flaps-down.xml">
+			 <name>Flaps</name>
+			 <value>FULL DOWN (below 225 KIAS)</value>
+		 </item>
+		</page>
+		<page>
+		 <item><name>DOWNWIND</name></item>
+		 <item include="airspeed.xml">
+			 <name>Speed</name>
+			 <value>170 KIAS</value>
+			 <min-airspeed-kt>165</min-airspeed-kt>
+			 <max-airspeed-kt>175</max-airspeed-kt>
+		 </item>
+		 <item include="armament-off.xml">
+			 <name>Armament</name>
+			 <value>All switches OFF</value>
+		 </item>
+		 <item include="spoilers-on.xml">
+			 <name>Spoilers</name>
+			 <value>ARMED (k)</value>
+		 </item>
+		 <item>
+			 <name>Harness</name>
+			 <value>CHECK SECURE</value>
+		 </item>
+		 <item include="gear-down.xml">
+			 <name>Gear</name>
+			 <value>CHECK DOWN</value>
+		 </item>
+		 <item include="flaps-down.xml">
+			 <name>Flaps</name>
+			 <value>CHECK DOWN</value>
+		 </item>
+		 <item>
+			 <name>Brakes</name>
+			 <value>CHECK</value>
+		 </item>
+		 <item><name>FINAL</name></item>
+		 <item>
+			 <name>AOA</name>
+			 <value>17.5</value>
+		 </item>
+		 <item include="airspeed.xml">
+			 <name>Speed</name>
+			 <value>125 KIAS @ 14,000lbs</value>
+			 <value>+5 KIAS for each 1,000lbs over</value>
+			 <min-airspeed-kt>125</min-airspeed-kt>
+			 <max-airspeed-kt>140</max-airspeed-kt>
+		 </item>
+		</page>
+  </checklist>
+
+ <checklist>
+   <title>Field Carrier Landing Practise</title>
+   <page>
+		 <item><name>APPROACH</name></item>
+		 <item include="altitude.xml">
+			 <name>Altitude</name>
+			 <value>800ft AGL</value>
+			 <min-altitude-ft>775</min-altitude-ft>
+			 <max-altitude-ft>825</max-altitude-ft>
+		 </item>
+		 <item include="airspeed.xml">
+			 <name>Speed</name>
+			 <value>250 - 300 KIAS</value>
+			 <min-airspeed-kt>250</min-airspeed-kt>
+			 <max-airspeed-kt>300</max-airspeed-kt>
+		 </item>
+		 <item><name>BREAK</name></item>
+		 <item>
+			 <name>Bank</name>
+			 <value>45 DEGREES</value>
+				<condition>
+					<or>
+						<and>
+							<greater-than>
+								<property>/orientation/roll-deg</property>
+								<value>40</value>
+							</greater-than>
+							<less-than>
+								<property>/orientation/roll-deg</property>
+								<value>50</value>
+							</less-than>
+						</and>
+						<and>
+							<greater-than>
+								<property>/orientation/roll-deg</property>
+								<value>-50</value>
+							</greater-than>
+							<less-than>
+								<property>/orientation/roll-deg</property>
+								<value>-40</value>
+							</less-than>
+						</and>
+					</or>
+				</condition>
+		 </item>
+		 <item include="speedbrakes-open.xml">
+			 <name>Speedbrakes</name>
+			 <value>EXTENDED (Ctrl-B)</value>
+		 </item>
+		 <item include="throttle.xml">
+			 <name>Throttle</name>
+			 <value>70%</value>
+			 <min-throttle>0.65</min-throttle>
+			 <max-throttle>0.75</max-throttle>
+		 </item>
+		 <item include="gear-down.xml">
+			 <name>Gear</name>
+			 <value>DOWN (below 225 KIAS)</value>
+		 </item>
+		 <item include="flaps-down.xml">
+			 <name>Flaps</name>
+			 <value>FULL DOWN (below 225 KIAS)</value>
+		 </item>
+		</page>
+		<page>
+		 <item><name>DOWNWIND</name></item>
+		 <item include="altitude.xml">
+			 <name>Altitude</name>
+			 <value>600ft AGL</value>
+			 <min-altitude-ft>550</min-altitude-ft>
+			 <max-altitude-ft>650</max-altitude-ft>
+		 </item>
+		 <item include="airspeed.xml">
+			 <name>Speed</name>
+			 <value>150 KIAS</value>
+			 <min-airspeed-kt>140</min-airspeed-kt>
+			 <max-airspeed-kt>160</max-airspeed-kt>
+		 </item>
+		 <item include="armament-off.xml">
+			 <name>Armament</name>
+			 <value>All switches OFF</value>
+		 </item>
+		 <item include="spoilers-on.xml">
+			 <name>Spoilers</name>
+			 <value>ARMED (k)</value>
+		 </item>
+		 <item>
+			 <name>Harness</name>
+			 <value>CHECK SECURE</value>
+		 </item>
+		 <item include="gear-down.xml">
+			 <name>Gear</name>
+			 <value>CHECK DOWN</value>
+		 </item>
+		 <item include="flaps-down.xml">
+			 <name>Flaps</name>
+			 <value>CHECK DOWN</value>
+		 </item>
+		 <item>
+			 <name>Brakes</name>
+			 <value>CHECK</value>
+		 </item>
+		</page>
+		<page>
+
+		 <item><name>FINAL</name></item>
+		 <item>
+			 <name>Altitude</name>
+			 <value>600ft AGL until glideslope</value>
+		 </item>
+		 <item>
+			 <name>AOA</name>
+			 <value>17.5</value>
+		 </item>
+		 <item include="airspeed.xml">
+			 <name>Speed</name>
+			 <value>125 KIAS @ 14,000lbs</value>
+			 <value>+5 KIAS for each 1,000lbs over</value>
+			 <min-airspeed-kt>125</min-airspeed-kt>
+			 <max-airspeed-kt>145</max-airspeed-kt>
+		 </item>
+		 <item><name>LANDING</name></item>
+		 <item include="throttle-full.xml">
+			 <name>Throttle</name>
+			 <value>FULL</value>
+		 </item>
+		 <item include="speedbrakes-closed.xml">
+			 <name>Speedbrakes</name>
+			 <value>RETRACT (Ctrl-B)</value>
+		 </item>
+		 <item include="airspeed.xml">
+			 <name>Climb</name>
+			 <value>300ft AGL 150 KIAS</value>
+			 <min-airspeed-kt>140</min-airspeed-kt>
+			 <max-airspeed-kt>160</max-airspeed-kt>
+		 </item>
+		 <item>
+			 <name>Bank</name>
+			 <value>30 degrees to downwind</value>
+				<condition>
+					<or>
+						<and>
+							<greater-than>
+								<property>/orientation/roll-deg</property>
+								<value>25</value>
+							</greater-than>
+							<less-than>
+								<property>/orientation/roll-deg</property>
+								<value>35</value>
+							</less-than>
+						</and>
+						<and>
+							<greater-than>
+								<property>/orientation/roll-deg</property>
+								<value>-35</value>
+							</greater-than>
+							<less-than>
+								<property>/orientation/roll-deg</property>
+								<value>-25</value>
+							</less-than>
+						</and>
+					</or>
+				</condition>
+		 </item>
+		 <item include="speedbrakes-open.xml">
+			 <name>Speedbrakes</name>
+			 <value>EXTEND on downwind (Ctrl-B)</value>
+		 </item>
+		</page>
+  </checklist>
+  <checklist>
+   <title>Carrier pre-takeoff</title>
+   <item include="trim.xml">
+     <name>Elevator Trim</name>
+     <value>7 DEGREES UP</value>
+     <min-trim>-0.22</min-trim>
+     <max-trim>-0.2</max-trim>
+   </item>
+   <item>
+     <name>Harness</name>
+     <value>SHOULDER HARDNESS LOCKED</value>
+   </item>
+   <item>
+     <name>Canopy</name>
+     <value>HANDLE OVER-CENTER</value>
+     <value>CANOPY HOOKS ENGAGED IN ROLLERS</value>
+   </item>
+   <item include="flaps-half.xml">
+     <name>Flaps</name>
+     <value>1/2</value>
+   </item>
+   <item include="speedbrakes-closed.xml">
+     <name>Speedbrakes</name>
+     <value>CLOSED (Ctrl-B)</value>
+   </item>
+   <item include="spoilers-off.xml">
+     <name>Spoilers</name>
+     <value>OFF</value>
+   </item>
+   <item include="armament-off.xml">
+     <name>Armament</name>
+     <value>All switches OFF</value>
+   </item>
+   <item>
+     <name>Catapult</name>
+     <value>ENGAGE (Shift-L)</value>
+			<condition>
+				<equals>
+					<property>/controls/gear/launchbar</property>
+					<value>true</value>
+				</equals>
+			</condition>
+   </item>
+ </checklist>
+ <checklist>
+	<title>Carrier takeoff</title>
+	<page>
+   <item include="throttle-full.xml">
+     <name>Throttle</name>
+     <value>MILITARY POWER (100%)</value>
+   </item>
+   <item>
+     <name>Attitude Indicator</name>
+     <value>CHECK</value>
+		 <marker>
+				<x-m>2.8000</x-m>
+				<y-m>-0.0542</y-m>
+				<z-m>0.8917</z-m>
+				<scale>4.3333</scale>
+		</marker>
+	</item>
+	<item>
+     <name>Engine Instruments</name>
+     <value>CHECK AND STABLE</value>
+			<marker>
+				<x-m>2.7592</x-m>
+				<y-m>0.1441</y-m>
+				<z-m>0.8566</z-m>
+				<scale>2.3334</scale>
+			</marker>
+   </item>
+   <item include="flaps-half.xml">
+     <name>Flaps</name>
+     <value>CHECK 1/2</value>
+   </item>
+   <item include="trim.xml">
+     <name>Elevator Trim</name>
+     <value>CHECK 7 DEGREES UP</value>
+     <min-trim>-0.22</min-trim>
+     <max-trim>-0.2</max-trim>
+   </item>
+   <item>
+     <name>Head</name>
+     <value>Against headrest</value>
+   </item>
+   <item>
+     <name>Left Hand</name>
+     <value>Firm grip on throttle and catapult handgrip</value>
+   </item>
+   <item>
+     <name>Right Hand</name>
+     <value>Salute and wait for launch (Shift-C)</value>
+   </item>
+	</page>
+ </checklist>
+ <checklist>
+   <title>Carrier landing</title>
+   <page>
+   <item><name>APPROACH</name></item>
+	 <item include="altitude.xml">
+     <name>Altitude</name>
+     <value>800ft</value>
+     <min-altitude-ft>750</min-altitude-ft>
+     <max-altitude-ft>850</max-altitude-ft>
+   </item>
+   <item include="airspeed.xml">
+     <name>Speed</name>
+     <value>250 KIAS</value>
+     <min-airspeed-kt>245</min-airspeed-kt>
+     <max-airspeed-kt>265</max-airspeed-kt>
+   </item>
+   <item>
+     <name>Hook</name>
+     <value>DOWN (O)</value>
+			<condition>
+				<equals>
+					<property>/controls/gear/tailhook</property>
+					<value>true</value>
+				</equals>
+			</condition>
+			<binding>
+				<command>property-assign</command>
+				<property>/controls/gear/tailhook</property>
+				<value>true</value>
+			</binding>
+		 <marker>
+				<x-m>2.8000</x-m>
+				<y-m>0.2933</y-m>
+				<z-m>0.7317</z-m>
+				<scale>3.0000</scale>
+		</marker>
+  </item>
+   <item><name>BREAK</name></item>
+   <item include="speedbrakes-open.xml">
+     <name>Speedbrakes</name>
+     <value>EXTENDED (Ctrl-B)</value>
+   </item>
+   <item include="throttle.xml">
+     <name>Throttle</name>
+     <value>70%</value>
+     <min-throttle>0.65</min-throttle>
+     <max-throttle>0.75</max-throttle>
+   </item>
+   <item include="gear-down.xml">
+     <name>Gear</name>
+     <value>DOWN (below 225 KIAS)</value>
+   </item>
+   <item include="flaps-down.xml">
+     <name>Flaps</name>
+     <value>FULL DOWN (below 225 KIAS)</value>
+   </item>
+</page>
+<page>
+
+   <item><name>DOWNWIND</name></item>
+   <item include="altitude.xml">
+     <name>Altitude</name>
+     <value>600ft</value>
+     <min-altitude-ft>550</min-altitude-ft>
+     <max-altitude-ft>650</max-altitude-ft>
+   </item>
+   <item include="airspeed.xml">
+     <name>Speed</name>
+     <value>150 KIAS</value>
+     <min-airspeed-kt>145</min-airspeed-kt>
+     <max-airspeed-kt>155</max-airspeed-kt>
+   </item>
+   <item>
+     <name>AOA</name>
+     <value>17.5</value>
+   </item>
+   <item include="armament-off.xml">
+     <name>Armament</name>
+     <value>All switches OFF</value>
+   </item>
+   <item include="spoilers-on.xml">
+     <name>Spoilers</name>
+     <value>ARMED</value>
+   </item>
+   <item>
+     <name>Harness</name>
+     <value>CHECK SECURE</value>
+   </item>
+   <item include="gear-down.xml">
+     <name>Gear</name>
+     <value>CHECK DOWN</value>
+   </item>
+   <item include="flaps-down.xml">
+     <name>Flaps</name>
+     <value>CHECK DOWN</value>
+   </item>
+   <item>
+     <name>Brakes</name>
+     <value>CHECK</value>
+   </item>
+   <item><name>FINAL</name></item>
+   <item>
+     <name>Altitude</name>
+     <value>600ft AGL until glideslope</value>
+   </item>
+   <item>
+     <name>AOA</name>
+     <value>17.5</value>
+   </item>
+   <item include="airspeed.xml">
+     <name>Speed</name>
+     <value>125 KIAS @ 14,000lbs</value>
+     <value>+5 KIAS for each 1,000lbs over</value>
+     <min-airspeed-kt>125</min-airspeed-kt>
+     <max-airspeed-kt>145</max-airspeed-kt>
+   </item>
+	</page>
+ </checklist>
+ <checklist>
+   <title>Stores</title>
+   <item><name>Cannon</name></item>
+    <item>
+     <name>Master</name>
+     <value>ON</value>
+   </item>
+   <item>
+     <name>Guns</name>
+     <value>READY</value>
+   </item>
+   <item>
+     <name>Trigger</name>
+     <value>FIRE</value>
+   </item>
+   <item><name>LAU68 Rockets</name></item>
+   <item>
+     <name>Master</name>
+     <value>ON</value>
+   </item>
+   <item>
+     <name>Selector</name>
+     <value>ROCKETS</value>
+   </item>
+   <item>
+     <name>Station</name>
+     <value>READY</value>
+   </item>
+   <item>
+     <name>Trigger</name>
+     <value>FIRE</value>
+   </item>
+   <item><name>Mk 82 Bombs</name></item>
+   <item>
+     <name>Master</name>
+     <value>ON</value>
+   </item>
+   <item>
+     <name>Arm</name>
+     <value>NOSE &amp; TAIL</value>
+   </item>
+   <item>
+     <name>Selector</name>
+     <value>BOMBS &amp; GM ARM</value>
+   </item>
+   <item>
+     <name>Station</name>
+     <value>READY</value>
+   </item>
+   <item>
+     <name>Bomb</name>
+     <value>DROP (b)</value>
+   </item>
+   <item><name>300 gallon drop tank</name></item>
+   <item>
+     <name>Master</name>
+     <value>ON</value>
+   </item>
+   <item>
+     <name>Arm</name>
+     <value>NOSE &amp; TAIL</value>
+   </item>
+   <item>
+     <name>Selector</name>
+     <value>BOMBS &amp; GM ARM</value>
+   </item>
+   <item>
+     <name>Station</name>
+     <value>READY</value>
+   </item>
+   <item>
+     <name>Bomb</name>
+     <value>JETTISON (b)</value>
+   </item>
+ </checklist>
+ <checklist>
+   <title>Terrain Clearance Radar</title>
+   <item>
+     <name>Radar Mode (Bottom RH console)</name>
+     <value>TC</value>
+   </item>
+   <item>
+     <name>Long/Short (Center of panel)</name>
+     <value>As required (10nm/20nm range)</value>
+   </item>
+   <item>
+     <name>Brightness (BRT knob on display)</name>
+     <value>As required</value>
+   </item>
+   <item>
+     <name>Reticle (RET knob on display)</name>
+     <value>As required</value>
+   </item>
+   <item>
+     <name>OBST light will illuminate when terrain &lt; 1000ft.</name>
+   </item>
+ </checklist>
+ <checklist>
+   <title>Inertial Navigation Computer</title>
+   <item>
+     <name>Doppler Radar (Top RH console marked NAV)</name>
+     <value>LAND/SEA</value>
+   </item>
+   <item>
+     <name>Destination Lat/Lon</name>
+     <value>SET</value>
+   </item>
+   <item>
+     <name>NAV Mode (RH console marked NAV)</name>
+     <value>D1</value>
+   </item>
+   <item>
+     <name>BHDI mode (center panel)</name>
+     <value>NAV CMPTR</value>
+   </item>
+   <item>
+     <name>Bearing</name>
+     <value>Single BHDI needle</value>
+   </item>
+   <item>
+     <name>Drift</name>
+     <value>Double BHDI needle</value>
+   </item>
+   <item>
+     <name>Distance (NM)</name>
+     <value>Displayed in BHDI</value>
+   </item>
+ </checklist>
+ <checklist>
+   <title>UHF Radio</title>
+   <item>
+     <name>UHF Mode (RH Console)</name>
+     <value>T/R</value>
+   </item>
+   <item>
+     <name>UHF Channel Mode (RH Consiole)</name>
+     <value>MAN</value>
+   </item>
+   <item>
+     <name>Frequency</name>
+     <value>Set using controls in console</value>
+   </item>
+   <item>
+     <name>Volume</name>
+     <value>Set using controls in console</value>
+   </item>
+ </checklist>
+ <checklist>
+   <title>TACAN</title>
+   <item>
+     <name>TACAN mode (RH console)</name>
+     <value>T/R</value>
+   </item>
+   <item>
+     <name>TACAN CHAN (RH console)</name>
+     <value>SET</value>
+   </item>
+   <item>
+     <name>BHDI mode (center panel)</name>
+     <value>TACAN</value>
+   </item>
+   <item>
+     <name>Bearing</name>
+     <value>Single BHDI needle</value>
+   </item>
+   <item>
+     <name>Distance (NM)</name>
+     <value>Displayed in BHDI</value>
+   </item>
+ </checklist>
+</PropertyList>
+
+

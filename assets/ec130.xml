@@ -1,0 +1,504 @@
+<PropertyList>
+  <checklist>  
+    <title>Engine Prestart Check</title>
+    <item>
+      <name>Preflight Inspection</name>
+      <value>COMPLETE</value>
+    </item>
+    <item>
+      <name>Seats and control pedals</name>
+      <value>ADJUST and LOCK</value>
+      <binding>
+       <command>nasal</command>
+       <script>ec130.config_dialog.toggle()</script>
+      </binding>
+    </item>
+    <item>
+      <name>Seat Belts</name>
+      <value>FASTENED</value>
+    </item>
+    <item>
+      <name>Rotorbrake Lever (green striped)</name>
+      <value>RELEASED, FULL FORWARDED</value>
+      <condition>
+        <equals>
+         <property>/controls/rotor/brake</property>
+         <value>0</value>
+        </equals>
+      </condition>
+    </item>
+    <item>
+      <name>Cutoff Lever (red striped)</name>
+      <value>FORWARD</value>
+      <condition>
+        <equals>
+         <property>controls/engines/engine/cutoff</property>
+         <value>0</value>
+        </equals>
+      </condition>
+    </item>
+    <item>
+      <name>Twist Grip </name>
+      <value>IDLE Detent</value>
+      <condition>
+        <equals>
+         <property>controls/engines/engine/power</property>
+         <value>0</value>
+        </equals>
+      </condition>
+    </item>
+    <item>
+      <name>Start Selector </name>
+      <value>off</value>
+      <condition>
+        <equals>
+         <property>/controls/engines/engine/startselector</property>
+         <value>0</value>
+        </equals>
+      </condition>
+    </item>
+    <item>
+      <name>External Power Unit</name>
+      <value>CONNECTED</value>
+      <condition>
+        <equals>
+         <property>controls/electric/external-power</property>
+         <value>1</value>
+        </equals>
+      </condition>
+    </item>
+    <item>
+      <name>BAT EPU</name>
+      <value>ON</value>
+      <condition>
+        <equals>
+         <property>/controls/electric/battery-switch</property>
+         <value>1</value>
+        </equals>
+      </condition>
+    </item>
+    <item>
+      <name>GEN</name>
+      <value>ON</value>
+      <condition>
+        <equals>
+         <property>/controls/electric/engine/generator</property>
+         <value>1</value>
+        </equals>
+      </condition>
+    </item>
+    <item>
+      <name>VEMD</name>
+      <value>ACTIVE</value>
+      <condition>
+        <property>instrumentation/VEMD/Phase/tested</property>
+      </condition>
+    </item>
+    <item>
+      <name>W/LT Button</name>
+      <value>PRESSED / RELEASED</value>
+    </item>
+    <item>
+      <name>Floats (if available)</name>
+      <value>REPACK/UNARM</value>
+      <condition>
+        <equals>
+         <property>/controls/gear/floats-armed</property>
+         <value>0</value>
+        </equals>
+        <equals>
+         <property>/controls/gear/floats-inflat</property>
+         <value>0</value>
+        </equals>
+      </condition>
+    </item>
+  </checklist>
+  
+  <checklist>
+    <title>Starting Engine</title>
+    <item>
+      <name>Check Fuel</name>
+      <value>SUFFICIENT</value>
+      <binding>
+       <command>nasal</command>
+       <script>ec130.config_dialog.toggle()</script>
+      </binding>
+    </item>
+    <item>
+      <name>FUEL P</name>
+      <value>ON</value>
+      <condition>
+        <equals>
+         <property>/controls/fuel/tank/boost-pump</property>
+         <value>1</value>
+        </equals>
+      </condition>
+    </item>
+    <item>
+      <name>A/COL LT</name>
+      <value>ON</value>
+      <condition>
+        <equals>
+         <property>/controls/lighting/beacon</property>
+         <value>1</value>
+        </equals>
+      </condition>
+    </item>
+    <item>
+      <name>wait 30sec</name>
+      <value></value>
+      <condition>
+        <equals>
+         <property>controls/fuel/tank/fuellines_filled</property>
+         <value>1</value>
+        </equals>
+      </condition>
+    </item>
+    <item>
+      <name>Start Selector</name>
+      <value>unlocked and ON</value>
+      <condition>
+        <equals>
+         <property>/controls/engines/engine/startselector</property>
+         <value>1</value>
+        </equals>
+      </condition>
+    </item>
+    <item>
+      <name>VEMD</name>
+      <value>FLI VISIBLE</value>
+      <condition>
+        <property>instrumentation/VEMD/Phase/flight</property>
+      </condition>
+    </item>
+    <item>
+      <name>FLI/Ng</name>
+      <value>67%</value>
+      <condition>
+        <greater-than>
+         <property>/engines/engine/n1-pct</property>
+         <value>66</value>
+        </greater-than>
+      </condition>
+    </item>
+  </checklist>
+  
+  <checklist>
+    <title>Before Takeoff</title>
+    <item>
+      <name>External Power Unit</name>
+      <value>DISCONNECTED</value>
+      <condition>
+        <equals>
+         <property>controls/electric/external-power</property>
+         <value>0</value>
+        </equals>
+      </condition>
+    </item>
+    <item>
+      <name>FUEL P</name>
+      <value>OFF</value>
+      <condition>
+        <equals>
+         <property>/controls/fuel/tank/boost-pump</property>
+         <value>0</value>
+        </equals>
+      </condition>
+    </item>
+    <item>
+      <name>Twist Grip</name>
+      <value>100% (MMB drag up)</value>
+      <condition>
+        <greater-than>
+         <property>/controls/engines/engine/power</property>
+         <value>0.97</value>
+        </greater-than>
+      </condition>
+    </item>
+    <item>
+      <name>When RPM > 340: HORN</name>
+      <value>ON</value>
+      <condition>
+        <equals>
+         <property>/controls/electric/horn</property>
+         <value>1</value>
+        </equals>
+      </condition>
+    </item>
+    <item>
+      <name>CHECK aural warning</name>
+      <value>ON</value>
+      <condition>
+        <equals>
+         <property>sim/sound/Cont310</property>
+         <value>1</value>
+        </equals>
+      </condition>
+    </item>
+    <item>
+      <name>GYRO</name>
+      <value>ON</value>
+      <condition>
+        <equals>
+         <property>/controls/electric/gyrocompass</property>
+         <value>1</value>
+        </equals>
+      </condition>
+    </item>
+    <item>
+      <name>HORIZON</name>
+      <value>ON</value>
+      <condition>
+        <property>/instrumentation/attitude-indicator/serviceable</property>
+      </condition>
+    </item>
+    <item>
+      <name>DCT/BAT</name>
+      <value>ON</value>
+      <condition>
+        <property>/controls/electric/directbat-switch</property>
+      </condition>
+    </item>
+    <item>
+      <name>AVIONICS</name>
+      <value>ON</value>
+      <condition>
+        <property>/controls/electric/avionics-switch</property>
+      </condition>
+    </item>
+    <item>
+      <name>POS LT</name>
+      <value>ON</value>
+      <condition>
+        <property>/controls/lighting/nav-lights</property>
+      </condition>
+    </item>
+    <item>
+      <name>PITOTS</name>
+      <value>ON</value>
+      <condition>
+        <property>/controls/anti-ice/pitot-heat</property>
+      </condition>
+    </item>
+    <item>
+      <name>DOME LT, INST L1, INST L2</name>
+      <value>AS NEEDED</value>
+    </item>
+    <item>
+      <name>Landing Light (L-Key)</name>
+      <value>AS NEEDED</value>
+    </item>
+    <item>
+      <name>Check Warning Lights</name>
+      <value>ALL OFF</value>
+      <condition>
+        <equals>
+         <property>/instrumentation/annunciators/cautions/engp</property>
+         <value>0</value>
+        </equals>
+        <equals>
+         <property>/instrumentation/annunciators/cautions/twtgrip</property>
+         <value>0</value>
+        </equals>
+        <equals>
+         <property>/instrumentation/annunciators/cautions/mgbp</property>
+         <value>0</value>
+        </equals>
+      </condition>
+    </item>
+    <item>
+      <name>Rotor RPM</name>
+      <value>370+</value>
+      <condition>
+        <greater-than>
+         <property>/rotors/main/rpm</property>
+         <value>369</value>
+        </greater-than>
+      </condition>
+    </item>
+  </checklist>
+  
+  <checklist>
+    <title>Takeoff</title>
+    <item>
+      <name>increase Collective</name>
+      <value>until hover 5ft-</value>
+    </item>
+    <item>
+      <name>Trim Elevator/Aileron</name>
+      <value>AS REQUIRED</value>
+      <value>adjust zero-pos (t-Key)</value>
+    </item>
+  </checklist>
+
+  <checklist>
+    <title>Cruise</title>
+    <item>
+      <name>Airspeed</name>
+      <value>100-137 kts</value>
+    </item>
+    <item>
+      <name>Torque</name>
+      <value>AS REQUIRED (best 82%)</value>
+    </item>
+  </checklist>
+
+  <checklist>
+    <title>Emergency</title>
+    <item>
+      <name>Floats (if available)</name>
+      <value>ARM FLOATS (F-Key)</value>
+      <condition>
+        <equals>
+         <property>/controls/gear/floats-armed</property>
+         <value>1</value>
+        </equals>
+      </condition>
+    </item>
+    <item>
+      <name>Inflate/activate</name>
+      <value>Alt-f Key</value>
+      <condition>
+        <equals>
+         <property>/controls/gear/floats-inflat</property>
+         <value>1</value>
+        </equals>
+      </condition>
+    </item>
+  </checklist>
+
+  <checklist>
+    <title>Shutdown</title>
+    <item>
+      <name>Twist Grip</name>
+      <value>IDLE (MMB drag down)</value>
+      <condition>
+        <less-than>
+         <property>/controls/engines/engine/power</property>
+         <value>0.64</value>
+        </less-than>
+      </condition>
+    </item>
+    <item>
+      <name>Start Selector</name>
+      <value>OFF and secured</value>
+      <condition>
+        <equals>
+         <property>/controls/engines/engine/switchguard</property>
+         <value>0</value>
+        </equals>
+      </condition>
+    </item>
+    <item>
+      <name>GENE</name>
+      <value>OFF</value>
+      <condition>
+        <equals>
+         <property>/controls/electric/engine/generator</property>
+         <value>0</value>
+        </equals>
+      </condition>
+    </item>
+    <item>
+      <name>Apply Rotor Brake (N-Key)</name>
+      <value>if Rotor RPM 170-</value>
+      <condition>
+        <equals>
+         <property>/controls/rotor/brake</property>
+         <value>1</value>
+        </equals>
+      </condition>
+    </item>
+    <item>
+      <name>Shut-Off other Systems</name>
+      <value>IF NOT NEEDED</value>
+    </item>
+    <item>
+      <name>Flight-Report Page</name>
+      <value>appears when Rotor RPM &lt;70</value>
+    </item>
+  </checklist>
+  
+  <checklist>
+    <title>Securing Helicopter</title>
+    <item>
+      <name>Rotorbrake Lever (green striped)</name>
+      <value>APPLIED (backward)</value>
+      <condition>
+        <equals>
+         <property>/controls/rotor/brake</property>
+         <value>1</value>
+        </equals>
+      </condition>
+    </item>
+    <item>
+      <name>Cutoff Lever (red striped)</name>
+      <value>APPLIED (backward)</value>
+      <condition>
+        <equals>
+         <property>controls/engines/engine/cutoff</property>
+         <value>1</value>
+        </equals>
+      </condition>
+    </item>
+    <item>
+      <name>Shut-Off ALL Systems</name>
+      <value>OFF</value>
+      <condition>
+        <equals>
+         <property>/controls/lighting/instruments-lights2</property>
+         <value>0</value>
+        </equals>
+        <equals>
+         <property>/controls/lighting/instrument-lights</property>
+         <value>0</value>
+        </equals>
+        <equals>
+         <property>/controls/lighting/dome-light</property>
+         <value>0</value>
+        </equals>
+        <equals>
+         <property>/controls/lighting/nav-lights</property>
+         <value>0</value>
+        </equals>
+        <equals>
+         <property>/controls/lighting/beacon</property>
+         <value>0</value>
+        </equals>
+        <equals>
+         <property>/controls/electric/directbat-switch</property>
+         <value>0</value>
+        </equals>
+        <equals>
+         <property>/controls/electric/gyrocompass</property>
+         <value>0</value>
+        </equals>
+        <equals>
+         <property>/controls/electric/avionics-switch</property>
+         <value>0</value>
+        </equals>
+        <equals>
+         <property>/controls/electric/horn</property>
+         <value>0</value>
+        </equals>
+        <equals>
+         <property>/controls/electric/battery-switch</property>
+         <value>0</value>
+        </equals>
+        <equals>
+         <property>/controls/electric/engine/generator</property>
+         <value>0</value>
+        </equals>
+        <equals>
+         <property>/controls/anti-ice/pitot-heat</property>
+         <value>0</value>
+        </equals>
+        <equals>
+         <property>/instrumentation/attitude-indicator/serviceable</property>
+         <value>0</value>
+        </equals>
+      </condition>
+    </item>
+  </checklist>
+  
+</PropertyList>
