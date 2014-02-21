@@ -4,20 +4,34 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".ChecklistsActivity" >
-    
+
     <TextView
-        android:id = "@+id/title"
+        android:id="@+id/title"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:textStyle="bold"
+        android:text="@string/not_loaded"
         android:textSize="@dimen/text_size"
-        android:text="TextView" />
+        android:textStyle="bold" />
 
     <fragment
-        android:name = "com.juanvvc.fschecklistreader.ChecklistFragment"
-        android:id = "@+id/checklists"
+        android:id="@+id/checklists"
+        android:name="com.juanvvc.fschecklistreader.ChecklistFragment"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent" />
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <Button
+            android:id="@+id/next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:text="@string/next_checklist" />
+    </RelativeLayout>
 
 </LinearLayout>

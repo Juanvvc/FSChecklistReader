@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <style type='text/css'>
+      a            { color:#a0a0e0 }
+      div.title    { 
+          color:#C0F0C0; 
+          font-size:1.2em; 
+          font-weight:bold; 
+          margin-top:1em; 
+          margin-bottom:0.5em; 
+          text-align:center }
+      div.subtitle { 
+          color:#C0F0C0; 
+          font-size:0.8em; 
+          margin-bottom:1em; 
+          text-align:center }
+      div.freetext { color:#F0F0F0 }
+      div.list     { color:#C0C0F0 }
+      body { background-color: #333 }
+    </style>
+  </head>
+  <body>
+! Only for simulation purposes! These lists are created by volunteers and they are not checked for correctness. Do not trust on these lists!
+!
+! Main program: (C) 2014, Juan Vera
+! Changelog: (C) 2011, Karsten Priegnitz
+! Checklists: many authors from www.flightgear.org
+! This app is under the GNU GPL license. 
+$ 1.0.0
+  % Version 1.0.0
+  _ 2014-02-21
+    * Initial release
+$ END_OF_CHANGE_LOG
+  </body>
+</html>
