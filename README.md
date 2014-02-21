@@ -1,5 +1,5 @@
 
-This is an checklist reader for the flight simulator FlightGear. It shows the
+This is an checklist reader for FlightGear flight simulator. It shows the
 checklists provided by the aircraft designers in www.flightgear.org
 
 = Legal =

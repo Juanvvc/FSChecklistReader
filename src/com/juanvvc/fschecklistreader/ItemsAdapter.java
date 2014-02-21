@@ -19,6 +19,7 @@
 package com.juanvvc.fschecklistreader;
 
 import android.content.Context;
+import android.graphics.Paint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -90,10 +91,13 @@ class ItemsAdapter extends ChecklistAdapter {
 		
 		// fill the information
 		if ( item != null) {
+			// set the texts and remove the strike (in any)
 			TextView tv = (TextView) convertView.findViewById(R.id.name);
 			tv.setText(item.getName());
+			tv.setPaintFlags(tv.getPaintFlags() & ~Paint.STRIKE_THRU_TEXT_FLAG);
 			tv = (TextView) convertView.findViewById(R.id.value);
 			tv.setText(item.getValue());
+			tv.setPaintFlags(tv.getPaintFlags() & ~Paint.STRIKE_THRU_TEXT_FLAG);
 			
 			// set the background color
 			if ( show_doables && !item.isDoable() ) {

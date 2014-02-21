@@ -1,0 +1,196 @@
+Prefligh check
+*Drain tanks		| Before moving the aircraft
+*Temp. indicator	| Check <55ºC
+*Documents		| On board
+*Flight control lock	| Removed
+Flight controls		| Check free
+*Key			| Pulled out
+*Cabin heat		| Check free
+Parking brake		| ON
+Throttle		| Free, FULL, IDLE
+Mixture			| Free, RICH, LEAN
+Master (BAT)		| ON
+Panel			| GEN & CANOPY ON
+Fuel quantity		| CHECK
+Amp. & Volt.		| CHECK
+Breakers		| Pressed in
+Trim			| Neutral
+Flaps			| Extend
+Exterior lights		| Check, OFF
+Master (BAT)		| OFF
+*ELT			| ARM
+*Fire extinguisher	| CHECK
+*Rescue hammer		| CHECK
+*Baggage		| ATTACHED
+Canopy			| Clean & undamaged
+*Horometer		| Take note
+
+Walk around check
+Walk around check	| DO
+*OIL			| 4-6 quaters
+*Fuel			| Check visually
+
+Before engine starting
+Preflight inspection	| COMPLETED
+*Pedals			| AJUST
+Passenger briefing	| PERFORM
+*Seat belts		| FASTEN
+Parking brake		| ON
+Flight controls		| FREE
+*Fuel Shut-off valve	| OPEN
+Mixture			| RICH
+Throttle		| IDLE
+*Friction		| ADJUST
+Avionics master		| CHECK OFF
+Master (BAT)		| ON
+Panel (GEN)		| CHECK ON
+Position light		| ON
+Canopy			| CLOSE
+*Panel (CANOPY)		| CHECK OFF
+
+Starting engine (cold)
+Throttle		| IDLE
+Mixture			| RICH
+Fuel pump		| ON
+Area			| CLEAR
+Brakes			| APPLY
+Throttle		| FULL FORWARD
+*Fuel primer		| ON (10 secs)
+Throttle		| IDLE - 1cm
+Magnetos		| BOTH
+Ignition switch		| START
+Throttle		| 1000 RPM
+Oil pressure		| CHECK GREEN (<30 sec)
+Master (GEN)		| ON
+Panel (GEN)		| CHECK OFF
+Fuel primer		| OFF
+
+Starting engine (warm)
+Throttle		| IDLE
+Mixture			| RICH
+Fuel pump		| ON
+Area			| CLEAR
+Brakes			| APPLY
+Throttle		| FULL FORWARD
+*Fuel primer		| ON (3 secs)
+Throttle		| IDLE - 1cm
+Magnetos		| BOTH
+Ignition switch		| START
+Throttle		| 1000 RPM
+Oil pressure		| CHECK GREEN (<30 sec)
+Master (GEN)		| ON
+Panel (GEN)		| CHECK OFF
+Fuel primer		| OFF
+
+Before taxi
+Avionics master		| ON
+Avionics equipment	| ON
+Voltmeter		| CHECK ON GREEN
+Amperemeter		| CHECK CHARGING
+Flaps			| RETRACT
+
+Taxi
+Clearance		| OBTAIN
+QNH			| ADJUST
+Transponder		| STANDY & CODE
+Taxi light		| ON
+Parking brake		| OFF
+Brakes			| CHECK
+Flight instruments	| CHECK
+Flight controls		| CHECK
+Briefing		| PERFORM
+
+Before take-off
+Parking brake		| ON
+Taxi light		| OFF
+Canopy			| CLOSED
+Panel			| CHECK
+*Fuel shut-off valve	| CHECK OPEN
+Fuel quantity		| CHECK
+Fuel primer		| CHECK OFF
+Fuel pump		| CHECK ON
+Trim			| Neutral
+Engine instruments	| CHECK ON GREEN
+Mixture			| RICH
+Throttle		| 1700 RPM
+Magnetos		| CHECK L-BOTH-R-BOTH LOSING 25-150 RPM, MAX DIF L/R 50 RPM
+Amperemeter		| CHECK CHARGING
+Vacuum gauge		| ON GREEN
+Throttle		| IDLE
+Throttle		| 1000 RPM
+Mixture			| LEAN, then RICH
+Breakers		| CHECK PRESSED IN
+Flaps			| T/O
+
+Line up
+Clearance		| OBTAIN
+Final			| FREE
+Parking brake		| OFF
+Landing light		| ON
+Fuel pump		| CHECK ON
+Transponder		| ALT
+Flaps			| CHECK T/O
+Mixture			| CHECK RICH
+
+Normal take-off
+Directional		| SET & CHECK
+Throttle		| FULL FORWARD
+RPM			| CHECK MIN 2000 RPM
+Speed 40 KIAS		| ENG. INSTR. ON GREEN
+Vr			| 55 KIAS
+Vy T/O			| 70 KIAS
+Vy CRUISE		| 75 KIAS
+
+After take-off (500ft AGL)
+Engine instruments	| ON GREEN
+Airspeed		| 75 KIAS
+Flaps			| CRUISE
+Landing light		| OFF
+
+Cruise
+Fuel pump		| OFF
+Throttle		| ADJUST
+Trim			| ADJUST
+Engine instruments	| ON GREEN
+Mixture			| ADJUST
+
+Descend
+Flight instruments	| ADJUST
+Avionics equipment	| ADJUST
+Fuel pump		| ON
+Mixture			| FULL RICH
+Throttle		| ADJUST
+
+Pre-landing
+Mixture			| CHECK RICH
+Fuel pump		| CHECK ON
+Landing light		| ON
+Approach speed CRUISE	| 75 KIAS
+Approach speed T/O	| 70 KIAS
+Approach speed LSG	| 60 KIAS
+
+Missed approach
+Throttle		| FUL FORWARD
+Climb speed		| 70 KIAS
+Flaps			| T/O
+
+After landing
+Flaps			| CRUISE
+Transponder		| STANDBY
+Strobe light		| OFF
+Landing light		| OFF
+taxi light		| ON
+
+Engine shut-down
+Throttle		| 1000 RPM
+Parking brake		| ON
+Taxi light		| OFF
+Avionics equipment	| OFF
+Avionics master		| OFF
+Fuel pump		| OFF
+Mixture			| LEAN CUT OFF
+Ignition key		| OFF
+Position light		| OFF
+Master (GEN/BAT)	| OFF
+Horometer		| TAKE NOTE
+*Pitot-static probe	| INSERT COVER

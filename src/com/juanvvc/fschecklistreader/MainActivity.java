@@ -86,35 +86,40 @@ public class MainActivity extends ListActivity {
 		super.onCreate(savedInstanceState);
 		
 		MyLog.setDebug(DEBUG_VERSION);
+
+		listfiles = new ArrayList<String>();
+		
+		// Read files from external storage
+		File extStore = Environment.getExternalStorageDirectory();
+		File extDir = new File(extStore, EXTERNAL_DIR);
+		if (extDir.exists() && extDir.isDirectory() ) {
+			for ( String f: extDir.list() ) {
+				if ( f.toLowerCase().endsWith(".xml") || f.toLowerCase().endsWith(".chk")) {
+					// avoid repeated files
+					if ( !listfiles.contains(f) ) {
+						listfiles.add(f);
+					}
+				}
+			}
+		}
+		
 		try {
 			// get the list of files from the assets repository
 			String[] realfiles = getAssets().list("");
-			listfiles = new ArrayList<String>();
 			for( String f: realfiles ) {
-				if ( f.endsWith(".xml") ) {
-					// only add .xml files, but remote trailing xml
-					listfiles.add(f.substring(0, f.length() - 4));
+				if ( f.toLowerCase().endsWith(".xml") || f.toLowerCase().endsWith(".chk") ) {
+					// only add .xml and .chk files
+					// avoid repeating files
+					if ( !listfiles.contains(f) ) {
+						listfiles.add(f);
+					}
 				}
 			}
 		} catch (IOException e) {
 			MyLog.e(this, "Cannot read assets");
 		}
 			
-		// Read files from external storage
-		File extStore = Environment.getExternalStorageDirectory();
-		File extDir = new File(extStore, EXTERNAL_DIR);
-		if (extDir.exists() && extDir.isDirectory() ) {
-			for ( String f: extDir.list() ) {
-				if ( f.endsWith(".xml") ) {
-					// only add .xml files, but remote trailing xml
-					String f2 = f.substring(0, f.length() - 4);
-					// avoid repeated files
-					if ( !listfiles.contains(f2) ) {
-						listfiles.add(f2);
-					}
-				}
-			}
-		}
+
 		
 		ArrayAdapter<String> a = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listfiles);
 		this.setListAdapter(a);
@@ -133,7 +138,7 @@ public class MainActivity extends ListActivity {
 			return;
 		}
 		Intent i = new Intent(this, ChecklistsActivity.class);
-		i.putExtra("xml", listfiles.get(position));
+		i.putExtra("file", listfiles.get(position));
 		startActivity(i);
 	}
 	

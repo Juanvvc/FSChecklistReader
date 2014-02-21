@@ -22,6 +22,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
@@ -38,6 +40,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /** The activity that shows the available checklists. It is coded using fragments.
  * 
@@ -47,20 +50,20 @@ import android.widget.TextView;
  *  Important note: I'm suporting also Android 2.2, so I'm using the support libraries. */
 public class ChecklistsActivity extends FragmentActivity implements ChecklistFragment.OnChecklistClickListener, OnClickListener {
 	
-	/** The name of the xml file to load, WITHOUT the suffix */
-	private String xmlname = null;
+	/** The name of the xml file to load, WITHOUT the path */
+	private String filename = null;
 	/** The checklist to load inside the xml file: 0, 1, 2... Set to -1 to not load any specific list */
-	private int xmlposition = -1;
+	private int fileposition = -1;
 	/** The mode of the activity:
 	 * 
 	 * ChecklistFragment.MODE_CHECKLISTS: shows the available checklists
-	 * ChecklistFragment.MODE_ITEMS: shows the items in the xmlposition checklist
+	 * ChecklistFragment.MODE_ITEMS: shows the items in the fileposition checklist
 	 * ChecklistFragment.MODE_BOTH: this activity is showing two fragments
 	 */
 	private int mode = 0;
 	
-	/** A task to read the xml in the background */
-	private ReadXML readXML = null;
+	/** A task to read the files in the background */
+	private AsyncTask<String, Object, ArrayList<Checklist>> readFile = null;
 	
 	// TODO: make this configurable
 	/** If true, items that are not doable are shown differently */
@@ -71,25 +74,25 @@ public class ChecklistsActivity extends FragmentActivity implements ChecklistFra
 		super.onCreate(savedInstanceState);
 		
 		// default values
-		xmlname = "c172";
-		xmlposition = -1;
+		filename = "c172";
+		fileposition = -1;
 		
-		// get the xmlname and xmlposition from the intent
+		// get the filename and fileposition from the intent
 		if (this.getIntent().getExtras() != null) {
-			if ( this.getIntent().getExtras().containsKey("xml")) {
-				xmlname = this.getIntent().getExtras().getString("xml");
+			if ( this.getIntent().getExtras().containsKey("file")) {
+				filename = this.getIntent().getExtras().getString("file");
 			}
-			if ( this.getIntent().getExtras().containsKey("xmlposition")) {
-				xmlposition = this.getIntent().getExtras().getInt("xmlposition");
+			if ( this.getIntent().getExtras().containsKey("fileposition")) {
+				fileposition = this.getIntent().getExtras().getInt("fileposition");
 			}
 		}
 		
-		if ( xmlposition == -1) {
+		if ( fileposition == -1) {
 			// notice: in large devices, this will load TWO fragments. MODE_BOTH will be set
 			// in small devices, this only loads checklist MODE_CHECKLIST will be set
 			setContentView(R.layout.activity_checklists);
 		} else {
-			// if the intent had some xmlposition, load this layout
+			// if the intent had some fileposition, load this layout
 			// this is only for small devices!! MODE_ITEMS
 			setContentView(R.layout.activity_items);
 		}
@@ -128,18 +131,24 @@ public class ChecklistsActivity extends FragmentActivity implements ChecklistFra
 	protected void onStart() {
 		super.onStart();
 		// if there is another readXMl running, stop it.
-		if ( readXML != null) {
-			readXML.cancel(true);
+		if ( readFile != null) {
+			readFile.cancel(true);
 		}
-		readXML = new ReadXML();
-		readXML.execute(this.xmlname);
+		
+		// get the reader
+		if (this.filename.toLowerCase().endsWith(".chk")) {
+			readFile = new ReadCHK();
+		} else {
+			readFile = new ReadXML();
+		}
+		readFile.execute(this.filename);
 	}
 	
-	/** A task to read the XML */
-	private class ReadXML extends AsyncTask <String, Object, XMLChecklistHandler> {
+	/** A task to read an XML file. Check XMLChecklistHandler for the format  */
+	private class ReadXML extends AsyncTask <String, Object, ArrayList<Checklist>> {
 		@Override
-		/** @param arg0 The name of the XML file to load (without path, without .xml) */
-		protected XMLChecklistHandler doInBackground(String... arg0) {
+		/** @param arg0 The name of the XML file to load (without path) */
+		protected ArrayList<Checklist> doInBackground(String... arg0) {
 			InputStream in = null;
 
 			// parses the file
@@ -148,7 +157,7 @@ public class ChecklistsActivity extends FragmentActivity implements ChecklistFra
 				XMLChecklistHandler h = new XMLChecklistHandler();
 				in = name2file(arg0[0]);
 				parser.parse(in, h);
-				return h;
+				return h.getChecklists();
 			} catch (ParserConfigurationException e) {
 				MyLog.e(this, "Cannot create XML parser: " + e);
 			} catch (SAXException e) {
@@ -169,7 +178,7 @@ public class ChecklistsActivity extends FragmentActivity implements ChecklistFra
 		}
 
 		@Override
-		protected void onPostExecute(XMLChecklistHandler result) {
+		protected void onPostExecute(ArrayList<Checklist> result) {
 			
 			if ( result == null ) {
 				return;
@@ -184,37 +193,37 @@ public class ChecklistsActivity extends FragmentActivity implements ChecklistFra
 			switch(mode) {
 			case ChecklistFragment.MODE_ITEMS: // show only items
 				items = new ItemsAdapter(ChecklistsActivity.this, SHOW_DOABLES);
-				items.setChecklists(result.getChecklists());
-				items.setPosition(xmlposition);
+				items.setChecklists(result);
+				items.setPosition(fileposition);
 				f = (ChecklistFragment) getSupportFragmentManager().findFragmentById(R.id.items);
 				f.setListAdapter(items);
 				break;
 			case ChecklistFragment.MODE_CHECKLISTS: // show only available checklists
 				checklists = new ChecklistAdapter(ChecklistsActivity.this);
-				checklists.setChecklists(result.getChecklists());
+				checklists.setChecklists(result);
 				f = (ChecklistFragment) getSupportFragmentManager().findFragmentById(R.id.checklists);
 				f.setListAdapter(checklists);
 				break;
 			case ChecklistFragment.MODE_BOTH: // show both
 				items = new ItemsAdapter(ChecklistsActivity.this, SHOW_DOABLES);
-				items.setChecklists(result.getChecklists());
-				items.setPosition(xmlposition);
+				items.setChecklists(result);
+				items.setPosition(fileposition);
 				f = (ChecklistFragment) getSupportFragmentManager().findFragmentById(R.id.items);
 				f.setListAdapter(items);
 
 				checklists = new ChecklistAdapter(ChecklistsActivity.this);
-				checklists.setChecklists(result.getChecklists());
+				checklists.setChecklists(result);
 				f = (ChecklistFragment) getSupportFragmentManager().findFragmentById(R.id.checklists);
 				f.setListAdapter(checklists);
 			}
 			
 			// set the title of the list (name of the aircraft)
 			TextView tv = (TextView) findViewById(R.id.title);
-			if ( xmlposition == -1 ) {
-				tv.setText(xmlname);
+			if ( fileposition == -1 ) {
+				tv.setText(filename);
 			} else {
-				if ( result.getChecklists() != null && result.getChecklists().size() >= xmlposition ) {
-					tv.setText(result.getChecklists().get(xmlposition).getTitle());
+				if ( result != null && result.size() >= fileposition ) {
+					tv.setText(result.get(fileposition).getTitle());
 				} else {
 					tv.setText("Error");
 				}
@@ -222,15 +231,111 @@ public class ChecklistsActivity extends FragmentActivity implements ChecklistFra
 		}
 	}
 	
+	/** Reads CHK files, an internal format for checklists.
+	 * 
+	 * Example of this filetype:
+	 * Checlists separated by newlines, the first line is the title of the checlists, the other
+	 * are pairs name | value. Spaces are ignored and removed.
+	 * If the name starts with a *, it is not doable
+	 * 
+First checklist
+BATTERY                 | ON
+MASTER                  | ON
+MAGNETOS                | START
+ 
+Second checklist
+RPM                     | 1000
+*OIL TEMP.              | Check >40º C
+
+Third checklist
+Speed                   | 100IAS
+Flaps                   | FULL
+
+	 * This class extends ReadXML to use the same onPostExecute()
+	 * @author juanvi
+	 *
+	 */
+	private class ReadCHK extends ReadXML {
+		protected ArrayList<Checklist> doInBackground(String... arg0) {
+			InputStream in = null;
+
+			// parses the file
+			try {
+				in = name2file(arg0[0]);
+				Scanner scanner = new Scanner(in);
+				
+				Checklist cl = null;
+				ArrayList<Checklist> al = new ArrayList<Checklist>();
+				boolean new_checklist = true;
+				
+				while(scanner.hasNext()) {
+					String line = scanner.nextLine().trim();
+					if ( line.length() == 0) {
+						// empty lines mark a new checklist
+						new_checklist = true;
+						if ( cl != null ){
+							al.add(cl);
+							cl = null;
+						}
+					} else {
+						if ( new_checklist ) {
+							cl = new Checklist();
+							cl.setTitle(line);
+							new_checklist = false;
+						} else {
+							if ( cl == null ) {
+								throw new Exception("Item without a checklists!");
+							}
+							String[] v = line.split("\\|", 2);
+							ChecklistItem i = new ChecklistItem();
+							if ( v[0].startsWith("*")) {
+								i.setDoable(false);
+								i.setName(v[0].substring(1).trim());
+							} else {
+								i.setDoable(true);
+								i.setName(v[0].trim());
+							}
+							i.setValue(v[1]);
+							
+							cl.getItems().add(i);
+						}
+					}
+				}
+				
+				// add the last checklist, is it is still in the memory
+				if ( cl != null ) {
+					al.add(cl);
+				}
+				
+				return al;
+				
+			} catch (IOException e) {
+				MyLog.e(this, "Error reading XML: " + e);
+			} catch ( Exception e ) {
+				MyLog.e(this, "Error parsing DEM: " + MyLog.stackToString(e));
+			} finally {
+				if ( in != null ) {
+					try {
+						in.close();
+					} catch(IOException e) {
+						MyLog.w(this, "Error while closing file: " + e);
+					}
+				}
+			}
+			
+			return null;
+		}
+	}
+	
 	/** Giving the name of a file to load, search in the external directory and assets
 	 * 
-	 *  @param name The name of the file to load, without path, without .xml suffix */
+	 *  @param name The name of the file to load, without path */
 	private InputStream name2file(String name) throws IOException{
 		// first, look for the name in the external storage. These files have priority
 		File extStore = Environment.getExternalStorageDirectory();
 		File extDir = new File(extStore, MainActivity.EXTERNAL_DIR);
 		if (extDir.exists() && extDir.isDirectory() ) {
-			File file = new File(extDir, name + ".xml");
+			File file = new File(extDir, name);
 			if (file.exists() && file.canRead()) {
 				return new FileInputStream(file);
 			}
@@ -238,7 +343,7 @@ public class ChecklistsActivity extends FragmentActivity implements ChecklistFra
 		
 		// No luck. look for the name in the assets
 		// notice: if the name does not exists, this must throw a IOException
-		return getAssets().open(name + ".xml");
+		return getAssets().open(name);
 	}
 
 	@Override
@@ -254,11 +359,12 @@ public class ChecklistsActivity extends FragmentActivity implements ChecklistFra
 			ChecklistAdapter ca = (ChecklistAdapter) f.getListAdapter();
 			// only change the position if it is a inside the limits
 			if ( ca.getChecklists() != null && id >=0 && ca.getChecklists().size() > id ) {
-				i.putExtra("xml", xmlname);
-				i.putExtra("xmlposition", id);
+				i.putExtra("file", filename);
+				i.putExtra("fileposition", id);
 				this.startActivity(i);
 			}
 			break;
+		case ChecklistFragment.MODE_ITEMS: // in mode items, it is the same than mode both
 		case ChecklistFragment.MODE_BOTH: // in mode both, change the adapter of the items fragment
 			// change the items
 			f = (ChecklistFragment) getSupportFragmentManager().findFragmentById(R.id.items);
@@ -267,9 +373,14 @@ public class ChecklistsActivity extends FragmentActivity implements ChecklistFra
 			if ( ia.getChecklists() != null && id >=0 && ia.getChecklists().size() > id ) {
 				ia.setPosition(id);
 				// change the second title (name of the checklist)
-				((TextView) this.findViewById(R.id.title2)).setText(ia.getChecklists().get(id).getTitle());
+				TextView tv = (TextView) this.findViewById(R.id.title2);
+				if ( tv == null ) {
+					// this happens in mode items
+					tv = (TextView) this.findViewById(R.id.title);
+				}
+				tv.setText(ia.getChecklists().get(id).getTitle());
 				
-				xmlposition = id;
+				fileposition = id;
 			}
 		}
 	}
@@ -278,7 +389,7 @@ public class ChecklistsActivity extends FragmentActivity implements ChecklistFra
 	public void onClick(View v) {
 		if ( v.getId() == R.id.next ) {
 			// load the next checklist. Notice onChecklistClick() checks for correct values!
-			onChecklistClick(xmlposition + 1);
+			onChecklistClick(fileposition + 1);
 		}
 	}
 }

@@ -25,7 +25,12 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
-/** This class parses a XML Checklist using SAX2 */
+/** This class parses a XML Checklist using SAX2.
+ * 
+ *  The format of these XML files is described here: http://wiki.flightgear.org/Aircraft_Checklists
+ *  
+ *   condition, page and marker elements are ignored. If the item has an attribute doable="false"
+ *   is is marked as not doable */
 class XMLChecklistHandler extends DefaultHandler {
 	/** Logger to be used by this class */
 	Logger logger = Logger.getLogger("XMLChecklistHandler");
