@@ -42,6 +42,8 @@ class XMLChecklistHandler extends DefaultHandler {
 	ChecklistItem current_item = null;
 	/** The current string buffer for data */
 	StringBuffer sb = null;
+	
+	private boolean ignore_elements = false;
 
 	/**
 	 * New content for a XML element. Add the content to the current
@@ -60,6 +62,16 @@ class XMLChecklistHandler extends DefaultHandler {
 	@Override
 	public void endElement(String uri, String localName, String qName)
 			throws SAXException {
+		
+		// end of the condition, check again elements
+		if (qName.equals("condition") || qName.equals("binding") || qName.equals("marker")) {
+			ignore_elements = false;
+		}
+		
+		if (ignore_elements) {
+			return;
+		}
+		
 		// titles are elements of checklists
 		if (qName.equals("title")) {
 			if (current != null) {
@@ -67,15 +79,15 @@ class XMLChecklistHandler extends DefaultHandler {
 			} else {
 				logger.warning("title element without a checklist");
 			}
-			// names are elements of checklistitems
-		} else if (qName.equals("name")) {
+			// names are elements of checklistitems (set only once)
+		} else if (qName.equals("name") && current_item.getName() == null) {
 			if (current_item != null) {
 				current_item.setName(sb.toString());
 			} else {
 				logger.warning("name element without a checklist item");
 			}
-			// names are elements of checklistitems
-		} else if (qName.equals("value")) {
+			// value are elements of checklistitems (set only once)
+		} else if (qName.equals("value") && current_item.getName() == null) {
 			if (current_item != null) {
 				current_item.setValue(sb.toString());
 			} else {
@@ -112,15 +124,22 @@ class XMLChecklistHandler extends DefaultHandler {
 		// we will use this stringbuffer to store the content of the currenly
 		// managed element
 		sb = new StringBuffer();
+		ignore_elements = false;
 	}
 
 	/** Starts an element */
 	@Override
 	public void startElement(String uri, String localName, String qName,
 			Attributes attributes) throws SAXException {
+		// if ignoreElements is ON, just ignore the elements
+		if (ignore_elements) {
+			return;
+		}
+		
 		// if a checklist starts, create the checklist
 		if (qName.equals("checklist")) {
 			current = new Checklist();
+			ignore_elements = false;
 		// if a checklistitem starts, create the checklistitem
 		} else if (qName.equals("item")) {
 			current_item = new ChecklistItem();
@@ -131,9 +150,11 @@ class XMLChecklistHandler extends DefaultHandler {
 			} else {
 				current_item.setDoable(true);
 			}
-			
-		} // any other elements do not need a special management
-			// notice many elements will be ignored: markers, for example
+
+			ignore_elements = false;
+		} else if (qName.equals("condition") || qName.equals("binding") || qName.equals("marker")) {
+			ignore_elements = true; // inside these elements, ignore values, names...
+		} // any other element doesn't need any special management
 
 		// remove the current string buffer
 		// this means we won't be manage content if it is defined like this:
