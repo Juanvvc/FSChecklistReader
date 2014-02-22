@@ -66,6 +66,7 @@ class XMLChecklistHandler extends DefaultHandler {
 		// end of the condition, check again elements
 		if (qName.equals("condition") || qName.equals("binding") || qName.equals("marker")) {
 			ignore_elements = false;
+			return;
 		}
 		
 		if (ignore_elements) {
@@ -87,7 +88,7 @@ class XMLChecklistHandler extends DefaultHandler {
 				logger.warning("name element without a checklist item");
 			}
 			// value are elements of checklistitems (set only once)
-		} else if (qName.equals("value") && current_item.getName() == null) {
+		} else if (qName.equals("value") && current_item.getValue() == null) {
 			if (current_item != null) {
 				current_item.setValue(sb.toString());
 			} else {
