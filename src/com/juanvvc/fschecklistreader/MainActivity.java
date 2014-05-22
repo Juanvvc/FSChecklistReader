@@ -75,7 +75,7 @@ public class MainActivity extends ListActivity {
 	public static final boolean DONATE_VERSION = false;
 	
 	// TODO: make this configurable
-	/** Path in the extermal storage for external checklists */
+	/** Path in the external storage for external checklists */
 	public static final String EXTERNAL_DIR = "checklists";
 	
 	/** The list of files */

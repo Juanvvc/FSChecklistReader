@@ -23,6 +23,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Scanner;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -40,7 +41,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 /** The activity that shows the available checklists. It is coded using fragments.
  * 
@@ -136,7 +136,7 @@ public class ChecklistsActivity extends FragmentActivity implements ChecklistFra
 		}
 		
 		// get the reader
-		if (this.filename.toLowerCase().endsWith(".chk")) {
+		if (this.filename.toLowerCase(Locale.US).endsWith(".chk")) {
 			readFile = new ReadCHK();
 		} else {
 			readFile = new ReadXML();
