@@ -81,15 +81,15 @@ class XMLChecklistHandler extends DefaultHandler {
 				logger.warning("title element without a checklist");
 			}
 			// names are elements of checklistitems (set only once)
-		} else if (qName.equals("name") && current_item.getName() == null) {
-			if (current_item != null) {
+		} else if (qName.equals("name") ) {
+			if (current_item != null && current_item.getName() == null ) {
 				current_item.setName(sb.toString());
 			} else {
 				logger.warning("name element without a checklist item");
 			}
 			// value are elements of checklistitems (set only once)
-		} else if (qName.equals("value") && current_item.getValue() == null) {
-			if (current_item != null) {
+		} else if (qName.equals("value") ) {
+			if (current_item != null && current_item.getValue() == null ) {
 				current_item.setValue(sb.toString());
 			} else {
 				logger.warning("value element without a checklist item");
